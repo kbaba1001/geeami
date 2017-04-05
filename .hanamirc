@@ -1,0 +1,4 @@
+project=geeami
+architecture=container
+test=minitest
+template=erb
