@@ -5,6 +5,7 @@ gem 'hanami', '>= 1.0.0.rc1'
 gem 'hanami-model', '>= 1.0.0.rc1'
 
 gem 'pg'
+gem 'puma'
 
 group :development do
   gem 'shotgun'
@@ -20,5 +21,4 @@ group :test do
 end
 
 group :production do
-  # gem 'puma'
 end
