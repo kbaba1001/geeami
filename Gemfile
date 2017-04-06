@@ -14,6 +14,8 @@ end
 
 group :test, :development do
   gem 'dotenv'
+  gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :test do
