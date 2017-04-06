@@ -6,6 +6,7 @@ gem 'hanami-model', '>= 1.0.0'
 
 gem 'pg'
 gem 'puma'
+gem 'hamlit'
 
 group :development do
   gem 'shotgun'

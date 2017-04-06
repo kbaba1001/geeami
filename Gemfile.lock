@@ -47,6 +47,10 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.9, >= 0.9.0)
+    hamlit (2.8.1)
+      temple (>= 0.8.0)
+      thor
+      tilt
     hanami (1.0.0)
       bundler (~> 1.13)
       concurrent-ruby (~> 1.0)
@@ -145,6 +149,7 @@ GEM
     sequel (4.45.0)
     shotgun (0.9.2)
       rack (>= 1.0)
+    temple (0.8.0)
     thor (0.19.4)
     tilt (2.0.7)
     transproc (1.0.2)
@@ -159,6 +164,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   dotenv
+  hamlit
   hanami (>= 1.0.0)
   hanami-model (>= 1.0.0)
   minitest
