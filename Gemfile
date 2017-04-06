@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rake'
 gem 'hanami', '>= 1.0.0'
 gem 'hanami-model', '>= 1.0.0'
 
+gem 'hamlit'
 gem 'pg'
 gem 'puma'
-gem 'hamlit'
+gem 'rake'
 
 group :development do
   gem 'shotgun'
