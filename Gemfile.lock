@@ -15,7 +15,6 @@ GEM
       xpath (~> 2.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
-    dotenv (2.2.0)
     dry-configurable (0.6.2)
       concurrent-ruby (~> 1.0)
     dry-container (0.6.0)
@@ -174,7 +173,6 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  dotenv
   hamlit
   hanami (>= 1.0.0)
   hanami-model (>= 1.0.0)

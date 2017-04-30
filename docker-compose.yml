@@ -1,4 +1,23 @@
-postgres:
+db:
   image: postgres
   ports:
     - "5432:5432"
+web:
+  build: .
+  command: bundle exec hanami s -p 2300 -b '0.0.0.0'
+  volumes:
+    - .:/geeami
+  ports:
+    - "2300:2300"
+  links:
+    - db
+  volumes_from:
+    - bundle
+  environment:
+    - DATABASE_URL="postgresql://postgres:@db/geeami_development"
+    - SERVE_STATIC_ASSETS="true"
+    - WEB_SESSIONS_SECRET="834502c4209e608102ecb1ead9a55134002567068223fbd3f1a56f13d4e9a0b9"
+bundle:
+  image: geeami_web
+  volumes:
+    - /bundle
