@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'hanami', '>= 1.0.0'
 gem 'hanami-model', '>= 1.0.0'
 
+gem 'bcrypt'
 gem 'hamlit'
 gem 'pg'
 gem 'puma'
