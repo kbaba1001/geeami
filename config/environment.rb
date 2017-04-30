@@ -18,7 +18,7 @@ Hanami.configure do
     #    adapter :sql, 'postgresql://localhost/geeami_development'
     #    adapter :sql, 'mysql://localhost/geeami_development'
     #
-    adapter :sql, ENV['DATABASE_URL']
+    adapter :sql, "postgresql://postgres:@db/geeami_#{ENV['HANAMI_ENV']}"
 
     ##
     # Migrations
