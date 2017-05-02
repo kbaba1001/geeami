@@ -6,15 +6,15 @@
 
     label :email
     email_field :email
-    div errors[:email].join(',') if errors
+    error_field :email
     br
     label :password
     password_field :password
-    div errors[:password].join(',') if errors
+    error_field :password
     br
     label :password_confirmation
     password_field :password_confirmation
-    div errors[:password_confirmation].join(',') if errors
+    error_field :password_confirmation
     br
     submit 'Sign Up'
   end
