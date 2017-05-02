@@ -21,8 +21,8 @@ end
 group :test do
   gem 'minitest'
   gem 'capybara'
-  gem 'minitest-reporters'
   gem 'minitest-power_assert'
+  gem 'minitest-reporters'
 end
 
 group :production do
