@@ -1,3 +1,22 @@
 %h1 サインアップ
 
+:ruby
+  form = form_for :user, '/users', method: :post do
+    errors = params.errors[:user] unless params.valid?
+
+    label :email
+    email_field :email
+    div errors[:email].join(',') if errors
+    br
+    label :password
+    password_field :password
+    div errors[:password].join(',') if errors
+    br
+    label :password_confirmation
+    password_field :password_confirmation
+    div errors[:password_confirmation].join(',') if errors
+    br
+    submit 'Sign Up'
+  end
+
 = form

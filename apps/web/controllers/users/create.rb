@@ -18,7 +18,7 @@ module Web::Controllers::Users
 
         redirect_to '/'
       else
-        render new
+        self.status = 422
       end
     end
 
