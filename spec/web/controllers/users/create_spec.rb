@@ -21,7 +21,7 @@ describe Web::Controllers::Users::Create do
   end
 
   describe 'with invalid params' do
-    it 'is invalid' do
+    it '必須項目を入力しないケース' do
       response = action.call(
         user: {
           email: '',
@@ -37,6 +37,24 @@ describe Web::Controllers::Users::Create do
       assert { errors.dig(:user, :email) == ['must be filled'] }
       assert { errors.dig(:user, :password) == ['must be filled'] }
       assert { errors.dig(:user, :password_confirmation) == ['must be filled'] }
+    end
+
+    # email は User の中で一意
+    # it 'emailが登録済みのケース'
+
+    # password は 8文字以上40文字以下、半角英数記号(_!$%@#) を使用可能
+    # password_confirmation は password と同じ値であること
+    it 'password_confirmation は password と同じ値ではないケース' do
+      response = action.call(
+        user: {
+          email: 'user1@example.com',
+          password: 'password',
+          password_confirmation: 'invalid_password'
+        }
+      )
+
+      errors = action.params.errors
+      assert { errors.dig(:user, :password_confirmation) == ['must be equal to password'] }
     end
   end
 end
