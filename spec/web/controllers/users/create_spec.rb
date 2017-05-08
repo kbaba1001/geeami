@@ -35,15 +35,65 @@ describe Web::Controllers::Users::Create do
       errors = action.params.errors
       # TODO i18n
       assert { errors.dig(:user, :email) == ['must be filled'] }
-      assert { errors.dig(:user, :password) == ['must be filled'] }
+      assert { errors.dig(:user, :password).include?('must be filled') }
       assert { errors.dig(:user, :password_confirmation) == ['must be filled'] }
     end
 
     # email は User の中で一意
     # it 'emailが登録済みのケース'
 
-    # password は 8文字以上40文字以下、半角英数記号(_!$%@#) を使用可能
-    # password_confirmation は password と同じ値であること
+    describe 'password は 8文字以上40文字以下、半角英数記号(_!$%@#) を使用可能' do
+      it 'passwordが8文字以下のケース' do
+        response = action.call(
+          user: {
+            email: 'user1@example.com',
+            password: 'pass',
+            password_confirmation: 'pass'
+          }
+        )
+
+        errors = action.params.errors
+        assert { errors.dig(:user, :password) == ['length must be within 8 - 40'] }
+      end
+
+      it 'passwordが40文字を超過するケース' do
+        response = action.call(
+          user: {
+            email: 'user1@example.com',
+            password: 'a' * 41,
+            password_confirmation: 'a' * 41
+          }
+        )
+
+        errors = action.params.errors
+        assert { errors.dig(:user, :password) == ['length must be within 8 - 40'] }
+      end
+
+      it '_!$%@#がパスワードとして使える' do
+        response = action.call(
+          user: {
+            email: 'user1@example.com',
+            password: 'aaa_!$%@#123',
+            password_confirmation: 'aaa_!$%@#123'
+          }
+        )
+
+        errors = action.params.errors
+        assert { errors.empty? }
+
+        response = action.call(
+          user: {
+            email: 'user1@example.com',
+            password: 'aaa_!$%@#123-',
+            password_confirmation: 'aaa_!$%@#123-'
+          }
+        )
+
+        errors = action.params.errors
+        assert { errors.dig(:user, :password) == ['is in invalid format'] }
+      end
+    end
+
     it 'password_confirmation は password と同じ値ではないケース' do
       response = action.call(
         user: {

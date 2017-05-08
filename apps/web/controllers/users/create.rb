@@ -7,7 +7,7 @@ module Web::Controllers::Users
     params do
       required(:user).schema do
         required(:email).filled(:str?)
-        required(:password).filled(:str?).confirmation
+        required(:password).value(:filled?, size?: 8..40, format?: /\A[\w!$%@#123]+\z/).confirmation
         required(:password_confirmation).filled(:str?)
       end
     end
