@@ -10,6 +10,7 @@
 /test/version_tmp/
 /tmp/
 .byebug_history
+memo.md
 
 # Used by dotenv library to load environment variables.
 .env
