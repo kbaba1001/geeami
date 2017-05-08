@@ -4,15 +4,15 @@ module Web::Controllers::Users
 
     expose :user
 
-    params do
-      # predicates EmailPredicates
-
-      required(:user).schema do
-        required(:email).value(:filled?, format?: /\A\s*([^@\s]{1,64})@((?:[-\p{L}\d]+\.)+\p{L}{2,})\s*\z/i)
-        required(:password).value(:filled?, size?: 8..40, format?: /\A[\w!$%@#123]+\z/).confirmation
-        required(:password_confirmation).filled(:str?)
+    params Class.new(Web::Validations::Base) {
+      params do
+        required(:user).schema do
+          required(:email).value(:filled?, format?: /\A\s*([^@\s]{1,64})@((?:[-\p{L}\d]+\.)+\p{L}{2,})\s*\z/i)
+          required(:password).value(:filled?, size?: 8..40, format?: /\A[\w!$%@#123]+\z/).confirmation
+          required(:password_confirmation).filled(:str?)
+        end
       end
-    end
+    }
 
     def call(params)
       if params.valid?
