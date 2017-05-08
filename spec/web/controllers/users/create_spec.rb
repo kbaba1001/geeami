@@ -39,8 +39,21 @@ describe Web::Controllers::Users::Create do
       assert { errors.dig(:user, :password_confirmation) == ['must be filled'] }
     end
 
-    # email は User の中で一意
-    # it 'emailが登録済みのケース'
+    it 'emailのフォーマットが不正' do
+      response = action.call(
+        user: {
+          email: 'user1example.com',
+          password: 'password',
+          password_confirmation: 'password'
+        }
+      )
+
+      errors = action.params.errors
+      assert { errors.dig(:user, :email) == ['is in invalid format'] }
+    end
+
+    it 'emailが登録済みのケース' do
+    end
 
     describe 'password は 8文字以上40文字以下、半角英数記号(_!$%@#) を使用可能' do
       it 'passwordが8文字以下のケース' do
