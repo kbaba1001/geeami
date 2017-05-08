@@ -5,7 +5,6 @@ gem 'hanami-model', '>= 1.0.0'
 
 gem 'bcrypt'
 gem 'hamlit'
-gem 'i18n'
 gem 'pg'
 gem 'puma'
 gem 'rake'
