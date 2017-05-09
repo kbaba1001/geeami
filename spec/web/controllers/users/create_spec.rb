@@ -33,10 +33,9 @@ describe Web::Controllers::Users::Create do
       assert { response[0] == 422 }
 
       errors = action.params.errors
-      # TODO i18n
-      assert { errors.dig(:user, :email) == ['must be filled'] }
-      assert { errors.dig(:user, :password).include?('must be filled') }
-      assert { errors.dig(:user, :password_confirmation) == ['must be filled'] }
+      assert { errors.dig(:user, :email).include?('入力してください') }
+      assert { errors.dig(:user, :password).include?('入力してください') }
+      assert { errors.dig(:user, :password_confirmation) == ['入力してください'] }
     end
 
     it 'emailのフォーマットが不正' do
@@ -49,7 +48,7 @@ describe Web::Controllers::Users::Create do
       )
 
       errors = action.params.errors
-      assert { errors.dig(:user, :email) == ['is in invalid format'] }
+      assert { errors.dig(:user, :email).include?('メールアドレスのフォーマットが不正です') }
     end
 
     it 'emailが登録済みのケース' do
@@ -66,7 +65,7 @@ describe Web::Controllers::Users::Create do
         )
 
         errors = action.params.errors
-        assert { errors.dig(:user, :password) == ['length must be within 8 - 40'] }
+        assert { errors.dig(:user, :password) == ['文字数は8から40にしてください'] }
       end
 
       it 'passwordが40文字を超過するケース' do
@@ -79,7 +78,7 @@ describe Web::Controllers::Users::Create do
         )
 
         errors = action.params.errors
-        assert { errors.dig(:user, :password) == ['length must be within 8 - 40'] }
+        assert { errors.dig(:user, :password) == ['文字数は8から40にしてください'] }
       end
 
       it '_!$%@#がパスワードとして使える' do
@@ -103,7 +102,7 @@ describe Web::Controllers::Users::Create do
         )
 
         errors = action.params.errors
-        assert { errors.dig(:user, :password) == ['is in invalid format'] }
+        assert { errors.dig(:user, :password) == ['不正なフォーマットです'] }
       end
     end
 
@@ -117,7 +116,7 @@ describe Web::Controllers::Users::Create do
       )
 
       errors = action.params.errors
-      assert { errors.dig(:user, :password_confirmation) == ['must be equal to password'] }
+      assert { errors.dig(:user, :password_confirmation) == ['passwordと同じ値にしてください'] }
     end
   end
 end

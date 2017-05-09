@@ -17,7 +17,7 @@ en:
         range: "must not be one of: %{list_left} - %{list_right}"
     exclusion?: "must not be one of: %{list}"
 
-    eql?: "must be equal to %{left}"
+    eql?: "%{left}と同じ値にしてください"
 
     not_eql?: "must not be equal to %{left}"
 
@@ -89,5 +89,5 @@ en:
       value:
         string:
           arg:
-            default: "length must be %{size}"
-            range: "length must be within %{size_left} - %{size_right}"
+            default: "文字数は%{size}にしてください"
+            range: "文字数は%{size_left}から%{size_right}にしてください"

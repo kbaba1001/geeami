@@ -9,7 +9,7 @@ module Web::Validations
 
     predicate(:unique?, message: 'メールアドレスは登録済みです') do |klass, value|
       # TODO SQLの発行はRepositoryに任せたほうがよい。あと exists の方が良さそう。
-      !! klass.new.send(:users).send(:where, email: 'kbaba1001@example.com').first
+      ! klass.new.users.where(email: value).first
     end
   end
 end
