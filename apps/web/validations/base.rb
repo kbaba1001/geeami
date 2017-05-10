@@ -7,9 +7,8 @@ module Web::Validations
       /\A\s*([^@\s]{1,64})@((?:[-\p{L}\d]+\.)+\p{L}{2,})\s*\z/i === value
     end
 
-    predicate(:unique?, message: 'メールアドレスは登録済みです') do |klass, value|
-      # TODO SQLの発行はRepositoryに任せたほうがよい。あと exists の方が良さそう。
-      ! klass.new.users.where(email: value).first
+    predicate(:unique_email?, message: 'メールアドレスは登録済みです') do |klass, value|
+      ! klass.new.find_by_email(value)
     end
   end
 end

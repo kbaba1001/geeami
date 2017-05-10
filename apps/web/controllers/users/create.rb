@@ -7,7 +7,7 @@ module Web::Controllers::Users
     params Class.new(Web::Validations::Base) {
       params do
         required(:user).schema do
-          required(:email).value(:filled?, :email?, unique?: UserRepository)
+          required(:email).value(:filled?, :email?, unique_email?: UserRepository)
           required(:password).value(:filled?, size?: 8..40, format?: /\A[\w!$%@#123]+\z/).confirmation
           required(:password_confirmation).filled(:str?)
         end

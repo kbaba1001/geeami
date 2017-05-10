@@ -52,6 +52,27 @@ describe Web::Controllers::Users::Create do
     end
 
     it 'emailが登録済みのケース' do
+      response = action.call(
+        user: {
+          email: 'user1@example.com',
+          password: 'password',
+          password_confirmation: 'password'
+        }
+      )
+
+      errors = action.params.errors
+      assert { errors.empty? }
+
+      response = action.call(
+        user: {
+          email: 'user1@example.com',
+          password: 'password',
+          password_confirmation: 'password'
+        }
+      )
+
+      errors = action.params.errors
+      assert { errors.dig(:user, :email).include?('メールアドレスは登録済みです') }
     end
 
     describe 'password は 8文字以上40文字以下、半角英数記号(_!$%@#) を使用可能' do
