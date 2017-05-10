@@ -19,6 +19,7 @@ module Web
       # When you add new directories, remember to add them here.
       #
       load_paths << [
+        'helpers',
         'validations',
         'controllers',
         'views'
@@ -82,7 +83,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # Configure Rack middleware for this application
       #
@@ -262,6 +263,7 @@ module Web
       controller.prepare do
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
+        include Web::Helpers::AuthenticateHelper
       end
 
       # Configure the code that will yield each time Web::View is included
@@ -271,6 +273,7 @@ module Web
       view.prepare do
         include Hanami::Helpers
         include Web::Assets::Helpers
+        include Web::Helpers::AuthenticateHelper
       end
     end
 

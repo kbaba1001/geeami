@@ -1,3 +1,17 @@
+:ruby
+  sign_out_link = form_for :session, '/session', method: :delete do
+    submit 'サインアウト'
+  end
+
 %h1 geeami
 
-= link_to 'サインアップ', '/users/new'
+- if signed_in?
+  current_user:
+  = current_user.email
+
+%br
+%ul
+  %li= link_to 'サインイン', '/session/new'
+  %li= link_to 'サインアップ', '/users/new'
+  - if signed_in?
+    %li= sign_out_link

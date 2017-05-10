@@ -1,5 +1,5 @@
-module Web::Controllers::Sessions
-  class Create
+module Web::Controllers::Session
+  class New
     include Web::Action
 
     def call(params)

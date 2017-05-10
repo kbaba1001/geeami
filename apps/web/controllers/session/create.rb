@@ -1,8 +1,8 @@
-module Web::Controllers::Sessions
-  class New
+module Web::Controllers::Session
+  class Create
     include Web::Action
 
-    expose :session
+    # expose :session
 
     params Class.new(Web::Validations::Base) {
       params do
@@ -10,7 +10,7 @@ module Web::Controllers::Sessions
           required(:email).value(:filled?, :email?)
           required(:password).value(:filled?)
 
-          # TODO 認証
+          # TODO 認証。入力されたパスワードが妥当かどうか
         end
       end
     }
@@ -18,6 +18,8 @@ module Web::Controllers::Sessions
     def call(params)
       if params.valid?
         # sign_in logic
+        user = UserRepository.new.users.where(email: params.dig(:session, :email)).one!
+        sign_in(user)
 
         redirect_to '/'
       else
