@@ -4,6 +4,7 @@ gem 'hanami', '>= 1.0.0'
 gem 'hanami-model', '>= 1.0.0'
 
 gem 'bcrypt'
+gem 'deep_merge'
 gem 'hamlit'
 gem 'pg'
 gem 'puma'
