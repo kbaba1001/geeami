@@ -9,7 +9,7 @@ module Hanami
           return if params.valid?
 
           errors = params.errors[@name][name]
-          return if errors.empty?
+          return unless errors
 
           attrs = {class: 'error-field'}.merge(attributes)
 
