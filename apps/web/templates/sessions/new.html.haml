@@ -1,0 +1,16 @@
+%h1 サインイン
+
+:ruby
+  form = form_for :session, '/sessions', method: :post do
+    label :email
+    email_field :email
+    error_field :email
+    br
+    label :password
+    password_field :password
+    error_field :password
+    br
+    submit 'Sign in'
+  end
+
+= form
