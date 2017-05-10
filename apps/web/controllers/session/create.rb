@@ -2,8 +2,6 @@ module Web::Controllers::Session
   class Create
     include Web::Action
 
-    # expose :session
-
     params Class.new(Web::Validations::Base) {
       params do
         required(:session).schema do
