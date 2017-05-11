@@ -1,6 +1,6 @@
 module Web::Views::Session
   class Create
     include Web::View
-    template 'users/new'
+    template 'session/new'
   end
 end

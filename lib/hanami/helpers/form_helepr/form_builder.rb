@@ -8,7 +8,7 @@ module Hanami
         def error_field(name, attributes = {}, &blk)
           return if params.valid?
 
-          errors = params.errors.dig(@name, name)
+          errors = params.errors.dig(name) || params.errors.dig(@name, name)
           return unless errors
 
           attrs = {class: 'error-field'}.merge(attributes)
