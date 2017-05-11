@@ -1,0 +1,20 @@
+%h1 サインアップ
+
+:ruby
+  form = form_for :user, '/users', method: :post do
+    label :email
+    email_field :email
+    error_field :email
+    br
+    label :password
+    password_field :password
+    error_field :password
+    br
+    label :password_confirmation
+    password_field :password_confirmation
+    error_field :password_confirmation
+    br
+    submit 'Sign Up'
+  end
+
+= form

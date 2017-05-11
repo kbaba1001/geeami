@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'hanami', '>= 1.0.0'
 gem 'hanami-model', '>= 1.0.0'
 
+gem 'bcrypt'
+gem 'deep_merge'
 gem 'hamlit'
 gem 'pg'
 gem 'puma'
@@ -20,8 +22,8 @@ end
 group :test do
   gem 'minitest'
   gem 'capybara'
-  gem 'minitest-reporters'
   gem 'minitest-power_assert'
+  gem 'minitest-reporters'
 end
 
 group :production do
