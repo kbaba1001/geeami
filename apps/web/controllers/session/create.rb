@@ -7,7 +7,7 @@ module Web::Controllers::Session
         configure do
           def self.messages
             super.merge(
-              en: { errors: { authenticate: '不正なパスワードです' } }
+              en: { errors: { authenticate: 'メールアドレスかパスワードに誤りがあります' } }
             )
           end
         end

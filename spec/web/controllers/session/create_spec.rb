@@ -37,7 +37,7 @@ describe Web::Controllers::Session::Create do
       assert { action.exposures[:session][Auth::Manager.new(:user).session_key_name].nil? }
 
       errors = action.params.errors
-      assert { errors.dig(:authenticate) == ['不正なパスワードです'] }
+      assert { errors.dig(:authenticate) == ['メールアドレスかパスワードに誤りがあります'] }
     end
   end
 end
