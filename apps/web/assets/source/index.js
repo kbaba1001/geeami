@@ -1,2 +1,2 @@
-var worksCheck = require("./worksCheck");
+import worksCheck from "./worksCheck";
 worksCheck.print();

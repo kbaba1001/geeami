@@ -1,11 +1,9 @@
-var printWorksMessage = function printWorksMessage () {
+const printWorksMessage = () => {
   console.log("It works!");
 };
 
-var print = function print () {
+const print = () => {
   printWorksMessage();
 };
 
-module.exports = {
-  print: print
-};
+export default { print };

@@ -10,12 +10,15 @@
     "build": "webpack --config webpack.common.js"
   },
   "devDependencies": {
-    "babel": "6.23.0",
     "babel-cli": "6.24.1",
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
     "babel-preset-latest": "6.24.1",
     "webpack": "2.5.1"
   },
   "babel": {
-    "presets": ["latest"]
+    "presets": [
+      "latest"
+    ]
   }
 }
