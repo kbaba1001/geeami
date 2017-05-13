@@ -1,0 +1,14 @@
+{
+  "name": "geeami-assets-stack",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kbaba1001",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "2.5.1"
+  }
+}

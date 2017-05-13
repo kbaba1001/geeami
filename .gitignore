@@ -12,6 +12,8 @@
 .byebug_history
 memo.md
 
+/node_modules/
+
 # Used by dotenv library to load environment variables.
 .env
 .env*
