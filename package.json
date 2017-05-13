@@ -7,14 +7,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.common.js",
-    "watch": "webpack --config webpack.common.js --watch"
+    "build": "cross-env NODE_ENV=development webpack --config webpack.common.js",
+    "watch": "cross-env NODE_ENV=development webpack --config webpack.common.js --watch",
+    "build-production": "cross-env NODE_ENV=production webpack --config webpack.common.js"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-loader": "7.0.0",
     "babel-preset-latest": "6.24.1",
+    "cross-env": "5.0.0",
     "vue": "2.3.3",
     "webpack": "2.5.1"
   },
