@@ -10,6 +10,9 @@
   "author": "kbaba1001",
   "license": "MIT",
   "devDependencies": {
+    "babel": "6.23.0",
+    "babel-cli": "6.24.1",
+    "babel-preset-latest": "6.24.1",
     "webpack": "2.5.1"
   }
 }
