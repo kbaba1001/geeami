@@ -13,6 +13,8 @@
 memo.md
 
 /node_modules/
+apps/web/assets/javascripts/output.js
+public/assets/
 
 # Used by dotenv library to load environment variables.
 .env
