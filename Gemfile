@@ -9,6 +9,7 @@ gem 'hamlit'
 gem 'pg'
 gem 'puma'
 gem 'rake'
+gem 'hanami-webpack', github: 'samuelsimoes/hanami-webpack'
 
 group :development do
   gem 'shotgun'
