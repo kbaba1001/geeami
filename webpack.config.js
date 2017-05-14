@@ -9,7 +9,7 @@ var config = {
   context: path.resolve(__dirname, "apps/web/assets/source"),
   entry: "./index.js",
   output: {
-    path: path.join(__dirname, "public/assets"),
+    path: path.join(__dirname, "public"),
     filename: "[name]-[chunkhash].js"
   },
   module: {
@@ -38,7 +38,8 @@ var config = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'images/[name].[ext]?[hash]'
+          name: '[name].[ext]'
+          // ?[hash]
         }
       }
     ]
@@ -51,12 +52,12 @@ var config = {
   ]
 };
 
-if (process.env.INBUILT_WEBPACK_DEV_SERVER) {
-  config.devServer = {
-    port: devServerPort,
-    headers: { "Access-Control-Allow-Origin": "*" }
-  };
-  config.output.publicPath = "//" + devServerHost + ":" + devServerPort + "/";
-}
+// if (process.env.INBUILT_WEBPACK_DEV_SERVER) {
+//   config.devServer = {
+//     port: devServerPort,
+//     headers: { "Access-Control-Allow-Origin": "*" }
+//   };
+//   config.output.publicPath = "//" + devServerHost + ":" + devServerPort + "/";
+// }
 
 module.exports = config;
