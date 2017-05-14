@@ -6,4 +6,6 @@
     = favicon
   %body
     = yield
-    = javascript 'build'
+    = webpack_asset_path('main')
+    -# = javascript webpack_asset_path('main')
+    %script{src: webpack_asset_path('main'), type: 'text/javascript'}

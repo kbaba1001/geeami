@@ -1,18 +1,12 @@
 {
   "name": "geeami-assets-stack",
   "version": "0.0.0",
-  "description": "",
-  "author": "kbaba1001",
-  "license": "MIT",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack.common.js",
-    "watch": "cross-env NODE_ENV=development webpack --config webpack.common.js --watch",
-    "build-production": "cross-env NODE_ENV=production webpack --config webpack.common.js"
-  },
   "dependencies": {
     "vue": "^2.3.3"
+  },
+  "scripts": {
+    "build": "webpack",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -25,6 +19,8 @@
     "sass-loader": "^5.0.1",
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.1",
-    "webpack": "^2.5.1"
+    "webpack": "^2.5.1",
+    "stats-webpack-plugin": "^0.6.0",
+    "webpack-dev-server": "^2.4.5"
   }
 }

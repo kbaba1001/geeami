@@ -15,6 +15,7 @@ services:
     volumes:
       - .:/geeami
     ports:
+      - "3020:3020"
       - "2300:2300"
     links:
       - db
@@ -27,7 +28,7 @@ services:
     environment:
       - SERVE_STATIC_ASSETS=true
       - WEB_SESSIONS_SECRET=834502c4209e608102ecb1ead9a55134002567068223fbd3f1a56f13d4e9a0b9
-
+      - WEBPACK_DEV_SERVER_HOST=0.0.0.0
   bundle:
     image: geeami_web
     volumes:

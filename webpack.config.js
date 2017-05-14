@@ -1,13 +1,16 @@
-var path = require("path");
-var webpack = require('webpack');
+var path = require("path"),
+    StatsPlugin = require("stats-webpack-plugin");
 
-module.exports = {
+var devServerPort = process.env.WEBPACK_DEV_SERVER_PORT,
+    devServerHost = process.env.WEBPACK_DEV_SERVER_HOST,
+    publicPath = process.env.WEBPACK_PUBLIC_PATH;
+
+var config = {
   context: path.resolve(__dirname, "apps/web/assets/source"),
   entry: "./index.js",
   output: {
-    path: path.resolve(__dirname, "public/assets"),
-    filename: "build.js",
-    publicPath: "/assets/"
+    path: path.join(__dirname, "public/assets"),
+    filename: "[name]-[chunkhash].js"
   },
   module: {
     rules: [
@@ -41,33 +44,19 @@ module.exports = {
     ]
   },
   resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+    alias: { 'vue$': 'vue/dist/vue.esm.js' }
   },
-  performance: {
-    hints: false
-  },
-  devtool: '#eval-source-map'
+  plugins: [
+    new StatsPlugin("webpack_manifest.json")
+  ]
 };
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
+if (process.env.INBUILT_WEBPACK_DEV_SERVER) {
+  config.devServer = {
+    port: devServerPort,
+    headers: { "Access-Control-Allow-Origin": "*" }
+  };
+  config.output.publicPath = "//" + devServerHost + ":" + devServerPort + "/";
 }
+
+module.exports = config;
