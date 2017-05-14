@@ -2,7 +2,7 @@ FROM ruby:latest
 ENV LANG C.UTF-8
 
 RUN apt-get update -qq && apt-get install -y postgresql-client libpq-dev
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs build-essential && npm install -g phantomjs-prebuilt
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs build-essential && npm install -g phantomjs-prebuilt vue-cli
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler
