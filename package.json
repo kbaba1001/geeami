@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "webpack",
+    "watch": "webpack --watch",
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
