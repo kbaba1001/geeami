@@ -1,0 +1,5 @@
+export SERVE_STATIC_ASSETS=true
+export WEB_SESSIONS_SECRET=
+export INBUILT_WEBPACK_DEV_SERVER=false
+export WEBPACK_DEV_SERVER=false
+export WEBPACK_PUBLIC_PATH=assets/
