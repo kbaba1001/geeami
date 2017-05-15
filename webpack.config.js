@@ -9,7 +9,8 @@ var config = {
   context: path.resolve(__dirname, "apps/web/assets/source"),
   entry: "./index.js",
   output: {
-    path: path.join(__dirname, "public"),
+    path: path.join(__dirname, "public/assets"),
+    publicPath: publicPath,
     filename: "[name]-[chunkhash].js"
   },
   module: {
@@ -45,19 +46,11 @@ var config = {
     ]
   },
   resolve: {
-    alias: { 'vue$': 'vue/dist/vue.esm.js' }
+    alias: { 'vue$': 'vue/dist/vue.runtime.esm.js' }
   },
   plugins: [
     new StatsPlugin("webpack_manifest.json")
   ]
 };
-
-// if (process.env.INBUILT_WEBPACK_DEV_SERVER) {
-//   config.devServer = {
-//     port: devServerPort,
-//     headers: { "Access-Control-Allow-Origin": "*" }
-//   };
-//   config.output.publicPath = "//" + devServerHost + ":" + devServerPort + "/";
-// }
 
 module.exports = config;
