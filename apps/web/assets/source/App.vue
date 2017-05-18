@@ -1,10 +1,18 @@
-<template>
-  <div id="app">
+<template lang="pug">
+  div#app
     {{ msg }}
-    <br>
-    <img src="./assets/logo.png">
-    <h1></h1>
-    <h2>Essential Links</h2>
+    br
+    h1
+      img(src="./assets/logo.png")
+    h2 Essential Links
+
+    ul
+      li
+        a(href="https://vuejs.org" target="_blank") Core Docs
+      li
+        a(href="https://forum.vuejs.org" target="_blank") Forum
+
+
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
