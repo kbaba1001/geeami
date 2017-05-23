@@ -23,6 +23,7 @@
     "stats-webpack-plugin": "^0.6.0",
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.1",
+    "vuetify": "^0.12.1",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
   }
