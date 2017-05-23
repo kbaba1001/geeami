@@ -1,52 +1,50 @@
-<template lang="pug">
-  div#app
-    img(src="./assets/logo.png")
-    h1 {{ msg }}
-    h2 Essential Links
-    ul
-      li: a(href="#" target="_blank") Core Docs
-      li: a(href="#" target="_blank") Forum
-      li: a(href="#" target="_blank") Gitter Chat
-      li: a(href="#" target="_blank") Twitter
-    h2 Ecosystem
-    ul
-      li: a(ref="#" target="_blank") vue-router
-      li: a(ref="#" target="_blank") vuex
-      li: a(ref="#" target="_blank") vue-loader
-      li: a(ref="#" target="_blank") awesome-vue
+<template>
+  <v-app id="example-1">
+    <v-navigation-drawer persistent v-model="drawer" light>
+      <v-list dense>
+        <v-list-item v-for="item in items" :key="item">
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar class="indigo">
+      <v-toolbar-side-icon light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Toolbar</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn light icon @click.native.stop="right = !right">
+        <v-icon>exit_to_app</v-icon>
+      </v-btn>
+    </v-toolbar>
+    <main>
+      <v-container fluid>
+        <!--v-router-->
+      </v-container>
+      <v-navigation-drawer right temporary v-model="right"></v-navigation-drawer>
+    </main>
+    <v-footer class="indigo">
+      <span>&copy; 2017</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  export default {
+    data () {
+      return {
+        drawer: true,
+        items: [
+          { title: 'Home', icon: 'dashboard' },
+          { title: 'About', icon: 'question_answer' }
+        ],
+        right: null
+      }
     }
   }
-}
 </script>
-
-<style lang="sass">
-#app
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  text-align: center
-  color: #2c3e50
-  margin-top: 60px
-
-h1, h2
-  font-weight: normal
-
-ul
-  list-style-type: none
-  padding: 0
-
-li
-  display: inline-block
-  margin: 0 10px
-
-a
-  color: #42b983
-</style>
