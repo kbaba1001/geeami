@@ -12,6 +12,12 @@
 .byebug_history
 memo.md
 
+# for node
+/node_modules/
+apps/web/assets/javascripts/build.js
+public/assets/
+npm-debug.log
+
 # Used by dotenv library to load environment variables.
 .env
 .env*

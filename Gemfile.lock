@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/samuelsimoes/hanami-webpack.git
+  revision: 1019f8efc217c9ae7290e220bf2c9e05ddd603ae
+  specs:
+    hanami-webpack (0.0.1)
+      hanami
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -180,6 +187,7 @@ DEPENDENCIES
   hamlit
   hanami (>= 1.0.0)
   hanami-model (>= 1.0.0)
+  hanami-webpack!
   minitest
   minitest-power_assert
   minitest-reporters
