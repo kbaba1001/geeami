@@ -2,10 +2,11 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta(name="viewport" content="initial-scale=1, width=device-width")
+    %link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css")
     %script{src: webpack_asset_path('main'), type: 'text/javascript'}
-    %link{href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons', rel: "stylesheet", type: "text/css"}
-    %link{href: "https://unpkg.com/vuetify/dist/vuetify.min.css", rel: "stylesheet", type:"text/css"}
     %title Web
     = favicon
   %body
+    %i.material-icons face
     = yield
